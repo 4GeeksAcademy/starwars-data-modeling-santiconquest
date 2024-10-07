@@ -43,7 +43,7 @@ class PlanetasFav(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    planet_id = Column(Integer, ForeignKey('planet.id'))
+    planetas_id = Column(Integer, ForeignKey('planetas.id'))
     PlanetasFav = relationship(Planetas)
 
 class Personajes(Base):
@@ -63,7 +63,8 @@ class PersonajesFav(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-    personaje_id = Column(Integer, ForeignKey('personaje.id'))
+    """ si o si antes del .id va el nombre de la tabla que relaciono """
+    personaje_id = Column(Integer, ForeignKey('personajes.id'))
     PersonajesFav = relationship(Personajes)
 
     def to_dict(self):
